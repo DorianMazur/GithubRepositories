@@ -1,0 +1,15 @@
+.searchResult{
+ text-align: center;
+}
+
+.searchResult__avatar{
+    margin: 6px auto;
+}
+
+.searchResult__container{
+    padding:10px;
+}
+
+.searchResult__link{
+    display: block;
+}

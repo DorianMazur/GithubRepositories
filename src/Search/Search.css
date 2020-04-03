@@ -1,0 +1,14 @@
+.search {
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+}
+.search__input {
+    flex: 1;
+    padding-left:10px;
+}
+.search__icon {
+    padding: 10px;
+}

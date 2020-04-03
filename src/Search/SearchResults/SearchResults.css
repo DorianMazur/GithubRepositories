@@ -1,0 +1,21 @@
+.searchResults {
+    margin: 10px;
+    background: none;
+    color: #fff;
+}
+
+.searchResults__bestMatchesTitle {
+    font-size: 11px;
+}
+
+.searchResults__bestMatch {
+    width: 150px;
+    margin: 5px auto;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
