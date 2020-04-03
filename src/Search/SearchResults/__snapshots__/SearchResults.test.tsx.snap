@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResults render correctly with 3 items in array 1`] = `
+<body>
+  <div>
+    <div
+      class="searchResults"
+    >
+      <div />
+      Number of all results: 
+      0
+      <div>
+        <div
+          class="searchResults__bestMatchesTitle"
+        >
+          (showing 
+          3
+           best matches)
+        </div>
+        <div>
+          <div
+            class="MuiPaper-root searchResults__bestMatch MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            1
+          </div>
+          <div
+            class="MuiPaper-root searchResults__bestMatch MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            2
+          </div>
+          <div
+            class="MuiPaper-root searchResults__bestMatch MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            3
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`SearchResults render correctly with 9 items in array 1`] = `
+<body>
+  <div>
+    <div
+      class="searchResults"
+    >
+      <div />
+      Number of all results: 
+      0
+      <div>
+        <div
+          class="searchResults__bestMatchesTitle"
+        >
+          (showing 
+          5
+           best matches)
+        </div>
+        <div>
+          <div
+            class="MuiPaper-root searchResults__bestMatch MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            1
+          </div>
+          <div
+            class="MuiPaper-root searchResults__bestMatch MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            2
+          </div>
+          <div
+            class="MuiPaper-root searchResults__bestMatch MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            3
+          </div>
+          <div
+            class="MuiPaper-root searchResults__bestMatch MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            4
+          </div>
+          <div
+            class="MuiPaper-root searchResults__bestMatch MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            5
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`SearchResults render correctly with null props 1`] = `
+<body>
+  <div />
+</body>
+`;
