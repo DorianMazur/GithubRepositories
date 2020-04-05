@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Avatar from '@material-ui/core/Avatar';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -6,29 +6,22 @@ import Dialog from '@material-ui/core/Dialog';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import StarIcon from '@material-ui/icons/Star';
-import { getUserInfo, getRepositories } from '../../Api/api';
+import { getUserInfo, getRepositories } from '../../../api/api';
 import { orderBy } from 'lodash';
+import { IState, IProps, IDefaultProps, IDefaultState } from './types';
 import './SearchResult.css';
 
-type SearchResultProps = {
-    open: boolean;
-    onClose: () => void;
-    searchResult: string | null;
-};
+export default class SearchResult extends React.Component<IProps, IState> {
+    static defaultProps: IDefaultProps = {
+        open: false,
+    };
 
-type SearchResultStat = {
-    data: null | { avatar: string; bio: string; repos: Array<{ name: string; stargazers_count: number; url: string }> };
-    loading: boolean;
-};
+    readonly state: IDefaultState = {
+        loading: true,
+        data: null,
+    };
 
-export default class SearchResult extends Component<SearchResultProps, SearchResultStat> {
-    constructor(props: SearchResultProps) {
-        super(props);
-        this.state = { loading: true, data: null };
-        this.fetchData = this.fetchData.bind(this);
-    }
-
-    fetchData(): void {
+    fetchData = () => {
         const { searchResult } = this.props;
         if (!searchResult) return;
         const calls = [getUserInfo(searchResult), getRepositories(searchResult)];
@@ -41,18 +34,22 @@ export default class SearchResult extends Component<SearchResultProps, SearchRes
             };
             this.setState({ loading: false, data });
         });
-    }
+    };
+
+    onClose = () => {
+        this.setState({ loading: true, data: null }, () => this.props.onClose());
+    };
 
     render(): JSX.Element | null {
-        const { open, onClose, searchResult } = this.props;
+        const { open, searchResult } = this.props;
         const { loading, data } = this.state;
         if (!searchResult) return null;
         return (
             <Dialog
-                onClose={onClose}
+                onClose={this.onClose}
                 onEnter={this.fetchData}
                 aria-labelledby="simple-dialog-title"
-                open={open}
+                open={open || false}
                 className="searchResult"
             >
                 <DialogTitle id="simple-dialog-title">Acount name: {searchResult}</DialogTitle>

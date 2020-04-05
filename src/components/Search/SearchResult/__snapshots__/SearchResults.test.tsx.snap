@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchResults render correctly closed with null searchResult 1`] = `
+exports[`SearchResult render correctly closed with null searchResult 1`] = `
 <body>
   <div />
 </body>
 `;
 
-exports[`SearchResults render correctly closed without null searchResult 1`] = `
+exports[`SearchResult render correctly closed without null searchResult 1`] = `
 <body>
   <div />
 </body>
 `;
 
-exports[`SearchResults render correctly open with null searchResult 1`] = `
+exports[`SearchResult render correctly open with null searchResult 1`] = `
 <body>
   <div />
 </body>
 `;
 
-exports[`SearchResults render correctly open without null searchResult 1`] = `
+exports[`SearchResult render correctly open without null searchResult 1`] = `
 <body
   style="padding-right: 0px; overflow: hidden;"
 >

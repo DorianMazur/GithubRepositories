@@ -1,8 +1,13 @@
 # Github respositories search
 
 ![First Image](/preview/1.png)
+
 ![Second Image](/preview/2.png)
 
+## Requirements
+
+node: 12.16+
+npm: 6.13.4+
 
 ## Available Scripts
 

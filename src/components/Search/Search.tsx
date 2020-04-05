@@ -1,38 +1,25 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { searchUsers } from '../Api/api';
+import { searchUsers } from '../../api/api';
 import SearchResults from './SearchResults/SearchResults';
 import SearchResult from './SearchResult/SearchResult';
+import { IState, IDefaultState } from './types';
 import './Search.css';
 
-type SearchState = {
-    searchResults: { nO: number; results: Array<{ login: string }> | null };
-    userName: string;
-    loading: boolean;
-    searchResultOpen: boolean;
-    searchResult: string | null;
-};
+export default class Search extends React.Component<{}, IState> {
+    readonly state: IDefaultState = {
+        searchResults: { nO: 0, results: null },
+        userName: '',
+        loading: false,
+        searchResultOpen: false,
+        searchResult: undefined,
+    };
 
-export default class Search extends Component<{}, SearchState> {
-    constructor(props: {}) {
-        super(props);
-        this.state = {
-            searchResults: { nO: 0, results: null },
-            userName: '',
-            loading: false,
-            searchResultOpen: false,
-            searchResult: null,
-        };
-        this.searchForUser = this.searchForUser.bind(this);
-        this.openSearchResult = this.openSearchResult.bind(this);
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-    }
-
-    searchForUser(): void {
+    searchForUser = () => {
         const { userName, loading } = this.state;
         if (loading || !userName) return;
         this.setState({ loading: true });
@@ -42,17 +29,17 @@ export default class Search extends Component<{}, SearchState> {
             )
             .catch()
             .finally(() => this.setState({ loading: false }));
-    }
+    };
 
-    openSearchResult(searchResult: string): void {
+    openSearchResult = (searchResult: string) => {
         const { searchResultOpen } = this.state;
         this.setState({ searchResultOpen: !searchResultOpen, searchResult });
-    }
+    };
 
-    onFormSubmit(e: { preventDefault: () => void }): void {
+    onFormSubmit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
         this.searchForUser();
-    }
+    };
 
     render(): JSX.Element {
         const { userName, searchResults, searchResultOpen, searchResult, loading } = this.state;
